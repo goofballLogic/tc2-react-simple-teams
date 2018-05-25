@@ -1,5 +1,6 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
+<<<<<<< HEAD
 		module.exports = factory(require("react"));
 	else if(typeof define === 'function' && define.amd)
 		define(["react"], factory);
@@ -8,6 +9,16 @@
 		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
 	}
 })(window, function(__WEBPACK_EXTERNAL_MODULE_react__) {
+=======
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else {
+		var a = factory();
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
+})(window, function() {
+>>>>>>> 3bb18d6b1a4efe01c7068fa95bcfcf17b3627ece
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -81,6 +92,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ({
 
+<<<<<<< HEAD
 /***/ "./src/ProfileCard.js":
 /*!****************************!*\
   !*** ./src/ProfileCard.js ***!
@@ -93,11 +105,14 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});
 
 /***/ }),
 
+=======
+>>>>>>> 3bb18d6b1a4efe01c7068fa95bcfcf17b3627ece
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /*! no static exports found */
+<<<<<<< HEAD
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1225,6 +1240,11 @@ eval("var React = __webpack_require__(/*! react */ \"react\");\n\nfunction Zande
 /***/ (function(module, exports) {
 
 eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react__;\n\n//# sourceURL=webpack:///external_%22react%22?");
+=======
+/***/ (function(module, exports) {
+
+eval("console.log(\"Hello from the main event\");\n\n//# sourceURL=webpack:///./src/index.js?");
+>>>>>>> 3bb18d6b1a4efe01c7068fa95bcfcf17b3627ece
 
 /***/ })
 
