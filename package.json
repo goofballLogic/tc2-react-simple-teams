@@ -1,0 +1,37 @@
+{
+  "name": "tc2-react-simple-teams",
+  "version": "0.0.1",
+  "description": "Simple teams for react by tc2",
+  "main": "dist/bundle.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "webpack": "^4.8.3"
+  },
+  "devDependencies": {
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "svg-react-loader": "^0.4.5",
+    "webpack-cli": "^2.1.4",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --config webpack.config.live-example",
+    "build": "webpack; webpack --config webpack.config.live-example"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goofballLogic/tc2-react-simple-teams.git"
+  },
+  "author": "tinycode2",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/goofballLogic/tc2-react-simple-teams/issues"
+  },
+  "homepage": "https://github.com/goofballLogic/tc2-react-simple-teams#readme"
+}

@@ -1,0 +1,9 @@
+.unstyled-example {
+    
+    border: dashed 1px silver;
+    padding: 40px;
+    max-width: 200px;
+    max-height: 200px;
+    overflow: auto;
+    
+}
