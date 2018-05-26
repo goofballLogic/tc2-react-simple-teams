@@ -1,6 +1,5 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-<<<<<<< HEAD
 		module.exports = factory(require("react"));
 	else if(typeof define === 'function' && define.amd)
 		define(["react"], factory);
@@ -9,16 +8,6 @@
 		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
 	}
 })(window, function(__WEBPACK_EXTERNAL_MODULE_react__) {
-=======
-		module.exports = factory();
-	else if(typeof define === 'function' && define.amd)
-		define([], factory);
-	else {
-		var a = factory();
-		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
-	}
-})(window, function() {
->>>>>>> 3bb18d6b1a4efe01c7068fa95bcfcf17b3627ece
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -92,7 +81,6 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ({
 
-<<<<<<< HEAD
 /***/ "./src/ProfileCard.js":
 /*!****************************!*\
   !*** ./src/ProfileCard.js ***!
@@ -101,18 +89,15 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _svgs = __webpack_require__(/*! ./svgs */ \"./src/svgs.js\");\n\nvar svgs = _interopRequireWildcard(_svgs);\n\nfunction _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar ProfileCard = function ProfileCard(_ref) {\n    var id = _ref.id,\n        name = _ref.name,\n        colour = _ref.colour,\n        color = _ref.color,\n        avatar = _ref.avatar,\n        blurb = _ref.blurb;\n    return console.log(blurb) || _react2.default.createElement(\n        \"article\",\n        { id: id, className: \"tc2rst profile-card\" },\n        _react2.default.createElement(\n            \"style\",\n            null,\n            \"#id.profile-card { --profile-color: \" + (colour || color) + \"; }\"\n        ),\n        _react2.default.createElement(\"span\", { className: \"profile-swatch\" }),\n        _react2.default.createElement(\n            \"h3\",\n            { className: \"profile-name\" },\n            name\n        ),\n        _react2.default.createElement(\n            \"div\",\n            { className: \"profile-avatar\" },\n            avatar in svgs ? _react2.default.createElement(svgs[avatar]) : _react2.default.createElement(\"img\", { src: avatar })\n        ),\n        _react2.default.createElement(\n            \"div\",\n            { className: \"profile-blurb\" },\n            blurb.replace(/\\n/g, \"\\n\")\n        )\n    );\n};\n\nexports.default = ProfileCard;\n\n//# sourceURL=webpack:///./src/ProfileCard.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _svgs = __webpack_require__(/*! ./svgs */ \"./src/svgs.js\");\n\nvar svgs = _interopRequireWildcard(_svgs);\n\nfunction _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar ProfileCard = function ProfileCard(_ref) {\n    var id = _ref.id,\n        name = _ref.name,\n        colour = _ref.colour,\n        color = _ref.color,\n        avatar = _ref.avatar,\n        blurb = _ref.blurb;\n    return console.log(blurb) || _react2.default.createElement(\n        \"article\",\n        { id: id, className: \"tc2rst profile-card\" },\n        _react2.default.createElement(\n            \"style\",\n            null,\n            \"#\" + id + \".profile-card { --profile-color: \" + (colour || color) + \"; }\"\n        ),\n        _react2.default.createElement(\"span\", { className: \"profile-swatch\" }),\n        _react2.default.createElement(\n            \"h3\",\n            { className: \"profile-name\" },\n            name\n        ),\n        _react2.default.createElement(\n            \"div\",\n            { className: \"profile-avatar\" },\n            avatar in svgs ? _react2.default.createElement(svgs[avatar]) : _react2.default.createElement(\"img\", { src: avatar })\n        ),\n        _react2.default.createElement(\n            \"div\",\n            { className: \"profile-blurb\" },\n            blurb.replace(/\\n/g, \"\\n\")\n        )\n    );\n};\n\nexports.default = ProfileCard;\n\n//# sourceURL=webpack:///./src/ProfileCard.js?");
 
 /***/ }),
 
-=======
->>>>>>> 3bb18d6b1a4efe01c7068fa95bcfcf17b3627ece
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /*! no static exports found */
-<<<<<<< HEAD
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1240,11 +1225,6 @@ eval("var React = __webpack_require__(/*! react */ \"react\");\n\nfunction Zande
 /***/ (function(module, exports) {
 
 eval("module.exports = __WEBPACK_EXTERNAL_MODULE_react__;\n\n//# sourceURL=webpack:///external_%22react%22?");
-=======
-/***/ (function(module, exports) {
-
-eval("console.log(\"Hello from the main event\");\n\n//# sourceURL=webpack:///./src/index.js?");
->>>>>>> 3bb18d6b1a4efe01c7068fa95bcfcf17b3627ece
 
 /***/ })
 
