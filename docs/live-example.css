@@ -1,4 +1,4 @@
-.tc2rst * {
+.tc2rst *:not(button) {
     color: black;
 	margin: 0;
 	padding: 0;
@@ -8,25 +8,15 @@
 	vertical-align: baseline;
 	box-sizing: border-box;
 }
-
-.example-set {
-    
-    display: flex;
-    
-}
-.example-set > * {
-    
-    flex: 1;
-    margin: 20px;
-    padding: 20px;
-    
-}
-.example-data {
-    
-    font-size: 1.5em;
-    
-}
+.example-data,
 .example-data input,
+.example-data textarea {
+    
+    font-size: 10pt;
+    font-family: Arial;
+    
+}
+.example-data input[type=text],
 .example-data textarea {
     
     min-width: 300px;
@@ -41,7 +31,15 @@
 .unstyled-example,
 .styled-example {
     
-    box-shadow: 0 0 3px -1px black;
+    max-width: 600px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 10px;
+    
+}
+.unstyled-example .profile-card .profile-avatar {
+    
+    max-width: 300px;
     
 }
 .styled-example .profile-card {
@@ -52,6 +50,7 @@
     padding: 20px calc(40px + var(--avatar-size)) 20px 20px ;
     position: relative;
     font-family: Arial;
+    min-height: var(--avatar-size);
     
 }
 .styled-example .profile-card .profile-swatch {
