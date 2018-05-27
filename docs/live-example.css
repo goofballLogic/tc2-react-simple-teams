@@ -1,22 +1,12 @@
-/*.tc2rst *:not(button) {
-    color: black;
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-	box-sizing: border-box;
-}
-.tc2rst input, textarea {
-    
-    border: solid 1px silver;
-    
-}*/
 .tc2rst * {
     
     font-family: Arial;
     font-size: 10pt;
+    
+}
+.tc2rst h3 {
+    
+    margin-top: 0;
     
 }
 .example-data > * {
