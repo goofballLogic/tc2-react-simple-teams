@@ -46,11 +46,6 @@ class LiveExample extends Component {
         this.setState( { [ what ]: e.target.value } );
         
     }
-    toggleStyled() {
-        
-        this.setState( { styled: !this.state.styled } );
-        
-    }
     toggleUnstyled() {
         
         this.setState( { unstyled: !this.state.unstyled } );
@@ -95,7 +90,6 @@ class LiveExample extends Component {
                     <button onClick={() => this.restoreProfile( 0 )}>Imran</button>
                     <button onClick={() => this.restoreProfile( 1 )}>Sarah-Jane</button>
                     <button onClick={() => this.restoreProfile( 2 )}>Steve Jobs</button>
-                    <label>Styled<input onChange={() => this.toggleStyled()} type="checkbox" checked={this.state.styled} /></label>
                     <label>Unstyled<input onChange={() => this.toggleUnstyled()} type="checkbox" checked={this.state.unstyled} /></label>
 
                 </div>

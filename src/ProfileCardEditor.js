@@ -20,7 +20,6 @@ class ProfileCardEditor extends PureComponent {
     }
     pickAvatar( value ) {
         
-console.log(1234,  value );
         const { onChange, profile } = this.props;
         onChange( { ...profile, avatar: value } );
         
