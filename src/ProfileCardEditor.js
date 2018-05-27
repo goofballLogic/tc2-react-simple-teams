@@ -27,7 +27,7 @@ class ProfileCardEditor extends PureComponent {
     render() {
         
         const { profile } = this.props;
-        return <form className="profile-card-editor">
+        return <form className="tc2rst profile-card-editor">
         
             <label>
                 
@@ -51,7 +51,7 @@ class ProfileCardEditor extends PureComponent {
                     
                 <aside><b>Note:</b> A good colour should be highly complementary to the colours picked by others on your team so that it's easy to distinguish on a graph or in a table. The strongly contrasting colours below are a good start, but you can also use your native colour picker by clicking on the colour input field above.</aside>
                 {colors.map( color => <span key={color} className="profile-color-swatch" onClick={e => this.pickSwatch( color, e )} style={{ "backgroundColor": color }} /> )}
-            
+
             </div>
             <label>
             
@@ -62,8 +62,12 @@ class ProfileCardEditor extends PureComponent {
             <div className="avatar-picker" onMouseDown={e => e.preventDefault()}>
                 
                 <aside><b>Note:</b> As well as picking on of the built-in images below, you can also enter a URL. If you <i>do</i> use your own image, try to choose one with a transparent background.</aside>
-                {Object.keys( svgs ).map( x => React.createElement( svgs[ x ], { key: x, onClick: () => this.pickAvatar( x ) } ) )}
-            
+                <div className="picker-canvas">
+                
+                    {Object.keys( svgs ).map( x => React.createElement( svgs[ x ], { key: x, onClick: () => this.pickAvatar( x ) } ) )}
+                
+                </div>
+                
             </div>
             
         </form>;

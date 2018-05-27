@@ -1,10 +1,10 @@
 import React from "react";
 import * as svgs from "./svgs";
 
-const ProfileCard = ( { id, name, colour, color, avatar, blurb } ) => <article id={id} className="tc2rst profile-card">
+const ProfileCard = ( { id, name, colour, color, avatar, blurb, style } ) => <article id={id} className="tc2rst profile-card" style={style}>
 
     <style>{`#${id}.profile-card { --profile-color: ${colour || color}; }`}</style>
-    <span className="profile-swatch" />
+    <span className="profile-swatch" style={{ "backgroundColor": "var(--profile-color)" }}>&nbsp;</span>
     <h3 className="profile-name">{name}</h3>
     <div className="profile-avatar">
         {avatar in svgs ? React.createElement( svgs[ avatar ] ) : <img src={avatar} />}

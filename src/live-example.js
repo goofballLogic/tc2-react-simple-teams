@@ -5,6 +5,7 @@ import { ProfileCard, ProfileCardEditor } from "./";
 
 const sampleProfiles = [ {
     
+    id: "imran",
     name: "Imran Munir",
     avatar: "elephant",
     colour: "#ABD71D",
@@ -13,6 +14,7 @@ const sampleProfiles = [ {
     
 },{
     
+    id: "sj",
     name: "Dr. Sarah-Jane Gibson",
     avatar: "lion",
     colour: "#FFD100",
@@ -20,6 +22,7 @@ const sampleProfiles = [ {
     
 }, {
     
+    id: "steve",
     name: "Steve Jobs",
     avatar: "https://www.imore.com/sites/imore.com/files/field/image/2014/03/topic_steve_jobs.png",
     colour: "#C7E0EF",
@@ -73,6 +76,19 @@ class LiveExample extends Component {
     }
     render() {
     
+        let angle = -10;
+        let offset = 0;
+        const profileStyle = () => {
+            
+            angle += 5;
+            offset += 60;
+            return { 
+                "transform": `rotateZ(${-angle}deg)`,
+                "top": `${offset}px`
+            };
+            
+        };
+        
         return <article>
     
             <section>
@@ -111,6 +127,18 @@ class LiveExample extends Component {
             
                 <h1>Profile editor</h1>
                 <ProfileCardEditor profile={this.state} onChange={profile => this.handleProfileChange( profile )} />
+                
+            </section>
+            <section>
+            
+                <h1>A team</h1>
+                <div className="team-example">
+                    {sampleProfiles.map( profile => <div className="styled-example">
+                    
+                        <ProfileCard key={profile.id} {...profile} style={profileStyle()} className="styled-example" /> 
+                    
+                    </div> )}
+                </div>
                 
             </section>
             
