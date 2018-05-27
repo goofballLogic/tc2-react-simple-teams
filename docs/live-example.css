@@ -102,7 +102,7 @@
     display: inline-block;
     width: 100px;
     vertical-align: top;
-    margin: 10px;
+    padding: 10px;
     
 }
 .profile-card-editor input[type=text],
@@ -183,8 +183,8 @@
     
     border-radius: 20px;
     box-shadow: 0 0 30px -10px silver;
-    width: 600px;
-    height: 190px;
+    width: 700px;
+    min-height: 190px;
     position: absolute;
     top: 120px;
     left: 40px;
