@@ -8,33 +8,16 @@
 	vertical-align: baseline;
 	box-sizing: border-box;
 }
-.example-data,
-.example-data input,
-.example-data textarea {
-    
-    font-size: 10pt;
-    font-family: Arial;
-    
-}
-.example-data input[type=text],
-.example-data textarea {
-    
-    min-width: 300px;
-    padding: 10px;
-    
-}
-.example-data textarea {
-    
-    min-height: 150px;
-    
-}
+
 .unstyled-example,
 .styled-example {
     
     max-width: 600px;
+    width: 600px;
     display: inline-block;
     vertical-align: top;
     margin: 10px;
+    min-height: 300px;
     
 }
 .unstyled-example .profile-card .profile-avatar {
@@ -63,12 +46,24 @@
     border-radius: 50%;
     width: var(--avatar-size);
     height: var(--avatar-size);
-    padding: 20px;
     background-color: var(--profile-color);
     position: absolute;
     top: 20px;
     right: 20px;
+    overflow: hidden;
     
+}
+.styled-example .profile-card .profile-avatar svg {
+    
+    margin: 20px;
+    max-width: calc(var(--avatar-size) - 40px);
+    max-height: calc(var(--avatar-size) - 40px);
+    
+}
+.styled-example .profile-card .profile-avatar img {
+    
+    max-width: var(--avatar-size);
+    max-height: var(--avatar-size);
 }
 .styled-example .profile-card h3 {
     
@@ -85,5 +80,82 @@
     
     line-height: 1.5em;
     white-space: pre-line;
+    
+}
+.profile-card-editor * {
+    
+    font-family: Arial;
+    font-size: 10pt;
+    
+}
+.profile-card-editor label {
+    
+    display: block;
+
+}
+.profile-card-editor label > span {
+    
+    display: inline-block;
+    width: 100px;
+    vertical-align: top;
+    margin: 10px;
+    
+}
+.profile-card-editor input[type=text],
+.profile-card-editor textarea {
+    
+    padding: 10px;
+    margin-bottom: 10px;
+    
+}
+.profile-card-editor input[type=color] {
+    
+    height: 30px;
+    width: 100px;
+    margin-bottom: 10px;
+    
+}
+.profile-card-editor .avatar-picker,
+.profile-card-editor .swatch-picker {
+    
+    background-color: rgba(255,255,255,0.9);
+    margin-left: 120px;
+    margin-bottom: 20px
+    
+}
+.profile-card-editor aside {
+    
+    line-height: 1.5em;
+    max-width: 600px;
+    display: block;
+}
+.profile-card-editor .avatar-picker svg {
+    
+    height: 50px;
+    padding: 10px;
+    
+}
+.profile-card-editor .avatar-picker svg:hover {
+    
+    background-color: #EEE;
+    
+}
+.profile-card-editor .profile-color-swatch {
+    
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin: 10px 10px 10px 0;
+    
+}
+.profile-card-editor input[type=text] {
+    
+    width: 400px;
+    
+}
+.profile-card-editor textarea {
+    
+    min-width: 500px;
+    min-height: 100px;
     
 }

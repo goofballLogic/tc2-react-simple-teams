@@ -1,7 +1,7 @@
 import React from "react";
 import * as svgs from "./svgs";
 
-const ProfileCard = ( { id, name, colour, color, avatar, blurb } ) => console.log( blurb ) || <article id={id} className="tc2rst profile-card">
+const ProfileCard = ( { id, name, colour, color, avatar, blurb } ) => <article id={id} className="tc2rst profile-card">
 
     <style>{`#${id}.profile-card { --profile-color: ${colour || color}; }`}</style>
     <span className="profile-swatch" />
