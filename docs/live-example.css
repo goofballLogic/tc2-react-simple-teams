@@ -1,4 +1,4 @@
-.tc2rst *:not(button) {
+/*.tc2rst *:not(button) {
     color: black;
 	margin: 0;
 	padding: 0;
@@ -7,6 +7,17 @@
 	font: inherit;
 	vertical-align: baseline;
 	box-sizing: border-box;
+}
+.tc2rst input, textarea {
+    
+    border: solid 1px silver;
+    
+}*/
+.tc2rst * {
+    
+    font-family: Arial;
+    font-size: 10pt;
+    
 }
 .example-data > * {
     
@@ -86,12 +97,6 @@
     white-space: pre-line;
     
 }
-.profile-card-editor * {
-    
-    font-family: Arial;
-    font-size: 10pt;
-    
-}
 .profile-card-editor label {
     
     display: block;
@@ -123,18 +128,9 @@
 .profile-card-editor .swatch-picker {
     
     background-color: rgba(255,255,255,0.9);
-    margin-left: 120px;
+    margin-left: 110px;
     margin-bottom: 20px;
     max-width: 800px;
-    
-}
-.profile-card-editor .picker-canvas {
-    
-    max-height: 200px;
-    max-width: 800px;
-    overflow-y: auto;
-    padding: 10px;
-    border: inset 1px;
     
 }
 .profile-card-editor aside {
@@ -177,7 +173,7 @@
     
     position: relative;
     overflow: hidden;
-
+    
 }
 .team-example .profile-card {
     
@@ -186,15 +182,13 @@
     width: 700px;
     min-height: 190px;
     position: absolute;
-    top: 120px;
     left: 40px;
     background-color: white;
     transform-origin: right;
     
 }
-.team-example .profile-card:hover {
+.team-example .profile-card .profile-blurb {
     
-    box-shadow: 0 0 30px -10px black;
-    z-index: 1;
+    font-size: 1.1em;
     
 }

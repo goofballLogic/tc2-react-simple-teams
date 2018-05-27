@@ -77,7 +77,7 @@ class LiveExample extends Component {
     render() {
     
         let angle = -10;
-        let offset = 0;
+        let offset = 20;
         const profileStyle = () => {
             
             angle += 5;
