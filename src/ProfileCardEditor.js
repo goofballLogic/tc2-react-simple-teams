@@ -62,7 +62,7 @@ console.log(1234,  value );
             </label>
             <div className="avatar-picker" onMouseDown={e => e.preventDefault()}>
                 
-                <aside><b>Note:</b> As well as picking on of the built-in images below, you can also enter a URL. Try to choose an image with a transparent background.</aside>
+                <aside><b>Note:</b> As well as picking on of the built-in images below, you can also enter a URL. If you <i>do</i> use your own image, try to choose one with a transparent background.</aside>
                 {Object.keys( svgs ).map( x => React.createElement( svgs[ x ], { key: x, onClick: () => this.pickAvatar( x ) } ) )}
             
             </div>
