@@ -5,6 +5,23 @@ import { ProfileCard } from "./";
 
 console.log( ProfileCard );
 
+const sampleProfiles = [ {
+    
+    name: "Imran Munir",
+    avatar: "elephant",
+    colour: "#ABD71D",
+    blurb: "Role: Front-end Engineer\n\nImran does mostly front-end stuff. He's also a big Scrum advocate."
+
+    
+},{
+    
+    name: "Dr. Sarah-Jane Gibson",
+    avatar: "lion",
+    colour: "#FFD100",
+    blurb: "Role: Music teacher\n\nSarah-Jane does lots of teaching stuff as well as some working with children with special needs."
+    
+} ];
+
 class LiveExample extends Component {
 
     constructor() {
@@ -12,10 +29,7 @@ class LiveExample extends Component {
         super();
         this.state = { 
             
-            name: "Imran Munir",
-            avatar: "elephant",
-            colour: "#ABD71D",
-            blurb: "Role: Front-end Engineer\n\nImran does mostly front-end stuff. He's also a big Scrum advocate.",
+            ...sampleProfiles[ 0 ],
             styled: true
             
         };
@@ -34,6 +48,11 @@ class LiveExample extends Component {
     toggleUnstyled() {
         
         this.setState( { unstyled: !this.state.unstyled } );
+        
+    }
+    restoreProfile( index ) {
+        
+        this.setState( sampleProfiles[ index ] );
         
     }
     renderProfileCard() {
@@ -60,12 +79,15 @@ class LiveExample extends Component {
             </ul>
             <div className="example-data">
                 
+                <button onClick={() => this.restoreProfile( 0 )}>Imran</button>
+                <button onClick={() => this.restoreProfile( 1 )}>Sarah-Jane</button>
                 <p><input onChange={e => this.handleChange( "name", e )} placeholder="Name" value={this.state.name} /></p>
                 <p><input onChange={e => this.handleChange( "avatar", e )} placeholder="Avatar" value={this.state.avatar} /></p>
                 <p><label>Colour: <input onChange={e => this.handleChange( "colour", e )} value={this.state.colour} type="color" /></label></p>
                 <p><textarea onChange={e => this.handleChange( "blurb", e )} placeholder="Blurb" value={this.state.blurb} /></p>
                 <button onClick={() => this.toggleStyled()}>Styled</button>
                 <button onClick={() => this.toggleUnstyled()}>Unstyled</button>
+                
             </div>
             {this.state.unstyled && <div id="profile-card-unstyled" className="unstyled-example">
                 
