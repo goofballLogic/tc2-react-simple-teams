@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 
-import { ProfileCard, ProfileCardEditor } from "./";
+import { ProfileCard, ProfileCardEditor, Team } from "./";
 
 const sampleProfiles = [ {
     
@@ -126,12 +126,13 @@ class LiveExample extends Component {
             <section>
             
                 <h1>Profile editor</h1>
+                <aside>Note: you're editing the profile displayed above</aside>
                 <ProfileCardEditor profile={this.state} onChange={profile => this.handleProfileChange( profile )} />
                 
             </section>
             <section>
-            
-                <h1>A team</h1>
+                
+                <h1>Profile gallery</h1>
                 <div className="team-example">
                     {sampleProfiles.map( profile => <div className="styled-example">
                     
@@ -139,6 +140,16 @@ class LiveExample extends Component {
                     
                     </div> )}
                 </div>
+            </section>
+            <section>
+            
+                <h1>A team</h1>
+                <Team
+                    className="styled-example"
+                    name="Reviewers module team" 
+                    logo="http://tinygraphs.com/labs/isogrids/hexa16/tc2-react-simple-teams?theme=heatwave&numcolors=4&size=220&fmt=svg" 
+                    profiles={sampleProfiles} />
+            
                 
             </section>
             

@@ -2,6 +2,7 @@
     
     font-family: Arial;
     font-size: 10pt;
+    box-sizing: border-box;
     
 }
 .tc2rst h3 {
@@ -17,11 +18,6 @@
 .unstyled-example,
 .styled-example {
     
-    max-width: 600px;
-    width: 600px;
-    display: inline-block;
-    vertical-align: top;
-    margin: 10px;
     min-height: 300px;
     
 }
@@ -39,7 +35,9 @@
     position: relative;
     font-family: Arial;
     min-height: var(--avatar-size);
-    
+    max-width: 600px;
+    width: 600px;
+
 }
 .styled-example .profile-card .profile-swatch {
     
@@ -163,6 +161,12 @@
     
     position: relative;
     overflow: hidden;
+    height: 600px;
+    
+}
+.team-example .styled-example {
+    
+    position: absolute;
     
 }
 .team-example .profile-card {
@@ -180,5 +184,46 @@
 .team-example .profile-card .profile-blurb {
     
     font-size: 1.1em;
+    
+}
+.team {
+    
+    position: relative;
+    --logo-size: 100px;
+
+    
+}
+.team * {
+    
+    box-sizing: border-box;
+    font-family: Arial;
+    
+}
+.team .team-name     {
+    
+    font-size: 3em;
+    letter-spacing: 2px;
+    color: #555;
+    padding-left: calc(var(--logo-size) + 20px);
+    margin: 0 0 10px 0;
+    line-height: var(--logo-size);
+
+}
+.team .team-logo {
+    
+    padding: 10px;
+    width: var(--logo-size);
+    border-radius: 50%;
+    box-shadow: 0 0 30px -10px silver;
+    position: absolute;
+    top: 0;
+    
+}
+.team .profile-card {
+    
+    margin: 20px 0 20px calc(var(--logo-size) + 20px);
+    width: 700px;
+    max-width: 700px;
+    height: 190px;
     
 }

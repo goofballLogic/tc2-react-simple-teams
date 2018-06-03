@@ -105,6 +105,18 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});
 
 /***/ }),
 
+/***/ "./src/Team.js":
+/*!*********************!*\
+  !*** ./src/Team.js ***!
+  \*********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nvar _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };\n\nvar _react = __webpack_require__(/*! react */ \"react\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _ProfileCard = __webpack_require__(/*! ./ProfileCard */ \"./src/ProfileCard.js\");\n\nvar _ProfileCard2 = _interopRequireDefault(_ProfileCard);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n/*\n    A team is a group of profiles, along with a name and image representing the team itself\n    Constraints on the size of the group are not imposed by this component\n    The component serves only to display team information json -> html\n*/\n\nvar Team = function Team(_ref) {\n    var id = _ref.id,\n        name = _ref.name,\n        logo = _ref.logo,\n        profiles = _ref.profiles,\n        className = _ref.className,\n        profileClassName = _ref.profileClassName;\n    return _react2.default.createElement(\n        \"article\",\n        { className: [\"tc2rst team\", \"team-\" + id, className].filter(function (x) {\n                return x;\n            }).join(\" \") },\n        _react2.default.createElement(\n            \"h3\",\n            { className: \"team-name\" },\n            name\n        ),\n        logo && _react2.default.createElement(\"img\", { src: logo, className: \"team-logo\" }),\n        profiles.map(function (p, i) {\n            return _react2.default.createElement(_ProfileCard2.default, _extends({ key: i }, p, { className: profileClassName }));\n        })\n    );\n};\n\nexports.default = Team;\n\n//# sourceURL=webpack:///./src/Team.js?");
+
+/***/ }),
+
 /***/ "./src/colors.js":
 /*!***********************!*\
   !*** ./src/colors.js ***!
@@ -125,7 +137,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.ProfileCardEditor = exports.ProfileCard = undefined;\n\nvar _ProfileCard = __webpack_require__(/*! ./ProfileCard */ \"./src/ProfileCard.js\");\n\nvar _ProfileCard2 = _interopRequireDefault(_ProfileCard);\n\nvar _ProfileCardEditor = __webpack_require__(/*! ./ProfileCardEditor */ \"./src/ProfileCardEditor.js\");\n\nvar _ProfileCardEditor2 = _interopRequireDefault(_ProfileCardEditor);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nexports.ProfileCard = _ProfileCard2.default;\nexports.ProfileCardEditor = _ProfileCardEditor2.default;\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.Team = exports.ProfileCardEditor = exports.ProfileCard = undefined;\n\nvar _ProfileCard = __webpack_require__(/*! ./ProfileCard */ \"./src/ProfileCard.js\");\n\nvar _ProfileCard2 = _interopRequireDefault(_ProfileCard);\n\nvar _ProfileCardEditor = __webpack_require__(/*! ./ProfileCardEditor */ \"./src/ProfileCardEditor.js\");\n\nvar _ProfileCardEditor2 = _interopRequireDefault(_ProfileCardEditor);\n\nvar _Team = __webpack_require__(/*! ./Team */ \"./src/Team.js\");\n\nvar _Team2 = _interopRequireDefault(_Team);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nexports.ProfileCard = _ProfileCard2.default;\nexports.ProfileCardEditor = _ProfileCardEditor2.default;\nexports.Team = _Team2.default;\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
