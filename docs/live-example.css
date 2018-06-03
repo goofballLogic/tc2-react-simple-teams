@@ -223,8 +223,10 @@
 .team .profile-card {
     
     margin: 20px 0 20px calc(var(--logo-size) + 20px);
-    width: 700px;
-    max-width: 700px;
+    width: 900px;
+    max-width: 900px;
     height: 190px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px -10px silver;
     
 }
