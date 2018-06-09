@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 
-import { ProfileCard, ProfileCardEditor, Team } from "./";
+import { ProfileCard, ProfileCardEditor, Team, TeamEditor } from "./";
 
 const sampleProfiles = [ {
     
@@ -30,6 +30,18 @@ const sampleProfiles = [ {
     
 } ];
 
+function team() {
+    
+    return {
+    
+        name: "Reviewers module team",
+        logo: "https://github.com/goofballLogic/tc2-react-simple-teams/raw/master/docs/dalek.png",
+        profiles: sampleProfiles.slice( 0 )
+    
+    };
+    
+}
+
 class LiveExample extends Component {
 
     constructor() {
@@ -39,7 +51,8 @@ class LiveExample extends Component {
             
             ...sampleProfiles[ 0 ],
             styled: true,
-            unstyled: false
+            unstyled: false,
+            team: team()
             
         };
         
@@ -134,9 +147,9 @@ class LiveExample extends Component {
                 
                 <h1>Profile gallery</h1>
                 <div className="team-example">
-                    {sampleProfiles.map( profile => <div className="styled-example">
+                    {sampleProfiles.map( profile => <div key={ profile.id } className="styled-example">
                     
-                        <ProfileCard key={profile.id} {...profile} style={profileStyle()} className="styled-example" /> 
+                        <ProfileCard {...profile} style={profileStyle()} className="styled-example" /> 
                     
                     </div> )}
                 </div>
@@ -146,11 +159,19 @@ class LiveExample extends Component {
                 <h1>A team</h1>
                 <Team
                     className="styled-example"
-                    name="Reviewers module team" 
-                    logo="http://tinygraphs.com/labs/isogrids/hexa16/tc2-react-simple-teams?theme=heatwave&numcolors=4&size=220&fmt=svg" 
-                    profiles={sampleProfiles} />
-            
+                    { ...this.state.team }
+                    />
                 
+            </section>
+            <section>
+            
+                <h1>A size-constrainted team editor</h1>
+                <TeamEditor
+                    className="team styled-example"
+                    size="6"
+                    team={ this.state.team }
+                    onChange={ team => this.setState( { team } ) } />
+                    
             </section>
             
         </article>;

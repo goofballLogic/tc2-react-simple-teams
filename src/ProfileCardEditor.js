@@ -8,6 +8,7 @@ class ProfileCardEditor extends PureComponent {
         
         const { name, value } = e.target;
         const { onChange, profile } = this.props;
+        if ( !onChange ) { throw new Error( "No onChange function was supplied to ProfileCardEditor" ); }
         onChange( { ...profile, [ name ]: value } );
 
     }
@@ -15,12 +16,14 @@ class ProfileCardEditor extends PureComponent {
         
         e.preventDefault();
         const { onChange, profile } = this.props;
+        if ( !onChange ) { throw new Error( "No onChange function was supplied to ProfileCardEditor" ); }
         onChange( { ...profile, colour: value } );
         
     }
     pickAvatar( value ) {
         
         const { onChange, profile } = this.props;
+        if ( !onChange ) { throw new Error( "No onChange function was supplied to ProfileCardEditor" ); }
         onChange( { ...profile, avatar: value } );
         
     }

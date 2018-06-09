@@ -1,7 +1,9 @@
 import React from "react";
 import * as svgs from "./svgs";
 
-const ProfileCard = ( { id, name, colour, color, avatar, blurb, style } ) => <article id={id} className="tc2rst profile-card" style={style}>
+function noop( id ) { console.log( `Profile ${id} was selected` ); }
+
+const ProfileCard = ( { id, name, colour, color, avatar, blurb, style, className = "", onClick = noop } ) => <article onClick={() => onClick(id)} id={id} className={`tc2rst profile-card ${className}`.trim()} style={style}>
 
     <style>{`#${id}.profile-card { --profile-color: ${colour || color}; }`}</style>
     <span className="profile-swatch" style={{ "backgroundColor": "var(--profile-color)" }}>&nbsp;</span>
@@ -9,8 +11,8 @@ const ProfileCard = ( { id, name, colour, color, avatar, blurb, style } ) => <ar
     <div className="profile-avatar">
         {avatar in svgs ? React.createElement( svgs[ avatar ] ) : <img src={avatar} />}
     </div>
-    <div className="profile-blurb">{blurb.replace( /\n/g, "\u000A" )}</div>
+    <div className="profile-blurb">{(blurb || "").replace( /\n/g, "\u000A" )}</div>
     
-</article>
+</article>;
 
 export default ProfileCard;
