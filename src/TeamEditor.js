@@ -10,8 +10,11 @@ function withEmpties( profiles, maxSize ) {
     return profiles.length >= maxSize ? profiles : withEmpties( [ {
 
         id: shortid(),
-        isUndefined: true,
-        name: "Empty"
+        isEmpty: true,
+        name: "Empty",
+        colour: "#ffffff",
+        blurb: "",
+        avatar: ""
         
     } ].concat( profiles ), maxSize );
 
@@ -20,9 +23,58 @@ class TeamEditor extends Component {
     
     constructor( { size, team } ) {
     
-        super();    
-        this.state = { profiles: withEmpties( team.profiles || [], size ) };
+        super();
+        this.state = { 
+            
+            profiles: withEmpties( team.profiles || [], size ) 
+            
+        };
         
+    }
+    
+    static getDerivedStateFromProps(props, state) {
+        
+        const { selectedProfile, profiles } = state;
+        const { team } = props;
+        let newSelectedProfile = selectedProfile;
+        for( const profile of team.profiles ) {
+            
+            if( selectedProfile && profile.id === selectedProfile.id ) {
+                
+                newSelectedProfile = profile;
+                
+            }
+            let stateProfileIndex = profiles.findIndex( stateProfile => profile.id === stateProfile.id );
+            if ( ~stateProfileIndex ) profiles.splice( stateProfileIndex, 1, profile );
+            
+        }
+        return { 
+            
+            ...state,
+            profiles,
+            selectedProfile: newSelectedProfile
+            
+        };
+        
+    }
+    
+    handleProfileChange( profile ) {
+        
+        const { onChange = handleChangeMissing, team = {} } = this.props;
+
+        delete profile.isEmpty;
+        const profileIndex = team.profiles.findIndex( x => x.id === profile.id );
+        if ( ~profileIndex ) {
+            
+            team.profiles.splice( profileIndex, 1, profile );
+            
+        } else {
+            
+            team.profiles.push( profile );
+            
+        }
+        onChange( team );
+
     }
     
     handleTeamChange( e ) {
@@ -60,7 +112,8 @@ class TeamEditor extends Component {
         const { className = "", size, team = {} } = this.props;
         const { selectedProfile, profiles } = this.state;
         const classy = ( ...bits ) => bits.filter( x => x ).join( " " );
-        return <article className={`team-editor ${className}`.trim()}>
+
+        return <article className={classy( "team-editor", className, selectedProfile && "editing" )}>
 
             <form className="team-details-editor">
 
@@ -74,11 +127,11 @@ class TeamEditor extends Component {
             
                 <ProfileCard key={x.id} 
                     {...x} 
-                    className={ classy( x.isUndefined && "undefined", x === selectedProfile && "selected" ) } 
+                    className={ classy( x.isEmpty && "undefined", x === selectedProfile && "selected" ) } 
                     onClick={ id => this.selectProfile( id ) } />
             
             )}
-            {selectedProfile && <ProfileCardEditor profile={selectedProfile} />}
+            {selectedProfile && <ProfileCardEditor profile={selectedProfile} onChange={e => this.handleProfileChange( e )} />}
             
         </article>;
         

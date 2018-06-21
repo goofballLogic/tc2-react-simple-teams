@@ -1,6 +1,29 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent, Component } from "react";
 import { colors } from "./colors";
 import * as svgs from "./svgs";
+
+class PickerCanvas extends Component {
+    
+    shouldComponentUpdate() {
+        
+        return false;
+        
+    }
+    
+    render() {
+        
+        const { onPick } = this.props;
+        return <div className="picker-canvas">
+                
+            {Object.keys( svgs )
+                .map( x => [ x, svgs[ x ] ] )
+                .map( ( [ x, Icon ] ) => <Icon key={x} onClick={() => onPick(x)} /> )}
+        
+        </div>;
+        
+    }
+    
+}
 
 class ProfileCardEditor extends PureComponent {
     
@@ -65,11 +88,7 @@ class ProfileCardEditor extends PureComponent {
             <div className="avatar-picker" onMouseDown={e => e.preventDefault()}>
                 
                 <aside><b>Note:</b> As well as picking on of the built-in images below, you can also enter a URL. If you <i>do</i> use your own image, try to choose one with a transparent background.</aside>
-                <div className="picker-canvas">
-                
-                    {Object.keys( svgs ).map( x => React.createElement( svgs[ x ], { key: x, onClick: () => this.pickAvatar( x ) } ) )}
-                
-                </div>
+                <PickerCanvas onPick={x => this.pickAvatar(x)} />
                 
             </div>
             
@@ -78,4 +97,7 @@ class ProfileCardEditor extends PureComponent {
     }
     
 }
+
+//  , onClick: () => this.pickAvatar( x )
+
 export default ProfileCardEditor;
