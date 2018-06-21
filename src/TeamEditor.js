@@ -21,12 +21,12 @@ function withEmpties( profiles, maxSize ) {
 }
 class TeamEditor extends Component {
     
-    constructor( { size, team } ) {
+    constructor( { team } ) {
     
         super();
-        this.state = { 
+        this.state = {
             
-            profiles: withEmpties( team.profiles || [], size ) 
+            profiles: team.profiles
             
         };
         
@@ -34,9 +34,9 @@ class TeamEditor extends Component {
     
     static getDerivedStateFromProps(props, state) {
         
-        const { selectedProfile, profiles } = state;
-        const { team } = props;
-        let newSelectedProfile = selectedProfile;
+        const { selectedProfile, profiles = [] } = state;
+        const { team, size } = props;
+        let newSelectedProfile = selectedProfile && selectedProfile.isEmpty ? selectedProfile : null;
         for( const profile of team.profiles ) {
             
             if( selectedProfile && profile.id === selectedProfile.id ) {
@@ -48,10 +48,15 @@ class TeamEditor extends Component {
             if ( ~stateProfileIndex ) profiles.splice( stateProfileIndex, 1, profile );
             
         }
+        const cleanProfiles = profiles.filter( profile => 
+            profile.isEmpty || 
+            ~team.profiles.findIndex( teamProfile => teamProfile.id === profile.id ) 
+        );
+        
         return { 
             
             ...state,
-            profiles,
+            profiles: withEmpties( cleanProfiles, size ),
             selectedProfile: newSelectedProfile
             
         };
@@ -107,6 +112,44 @@ class TeamEditor extends Component {
         
     }
     
+    renderSelectedProfileActions() {
+        
+        const { selectedProfile } = this.state;
+        if ( !selectedProfile ) return;
+        if ( selectedProfile.isEmpty ) return;
+        const { onArchiveProfile, onDeleteProfile } = this.props;
+        return <div key="profile-actions" className="profile-actions">
+
+            { onArchiveProfile && [
+            
+                <button key="archive-button" onClick={() => onArchiveProfile( selectedProfile )}>Archive</button>,
+                <p key="archive-explanation">Archiving a profile removes the profiles from the active team but retains data associated with the profile. It may be possible to restore the profile to the active team at a later date.</p>
+            
+            ] }
+            { onDeleteProfile && [
+            
+                <button key="delete-button" className="danger-button" onClick={() => onDeleteProfile( selectedProfile )}>Delete</button>,
+                <p key="delete-explanation">Deleting a profile purges all record of the profile from the team, including historical data associated with the profile. In most cases we recommend that you Archive the profile instead.</p>
+            
+            ] }
+    
+        </div>;
+        
+    }
+    
+    renderSelectedProfile() {
+
+        const { selectedProfile } = this.state;
+        if ( !selectedProfile ) return;
+        return [
+            
+            <ProfileCardEditor key="profile-editor" profile={selectedProfile} onChange={e => this.handleProfileChange( e )} />,
+            this.renderSelectedProfileActions()
+        
+        ];
+
+    }
+    
     render() {
         
         const { className = "", size, team = {} } = this.props;
@@ -123,7 +166,8 @@ class TeamEditor extends Component {
                 <input type="text" name="logo" value={team.logo} className="team-logo-editor" onChange={e => this.handleTeamChange( e )} />
                 
             </form>
-            {profiles.map( x => 
+            <div className="team-profiles">
+            {profiles.map( x =>
             
                 <ProfileCard key={x.id} 
                     {...x} 
@@ -131,7 +175,8 @@ class TeamEditor extends Component {
                     onClick={ id => this.selectProfile( id ) } />
             
             )}
-            {selectedProfile && <ProfileCardEditor profile={selectedProfile} onChange={e => this.handleProfileChange( e )} />}
+            </div>
+            {this.renderSelectedProfile()}
             
         </article>;
         

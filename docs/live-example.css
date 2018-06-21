@@ -19,6 +19,12 @@
     margin: 10px;
     
 }
+.profile-card {
+    
+    display: flex;
+    flex-direction: column;
+    
+}
 .unstyled-example,
 .styled-example {
     
@@ -87,7 +93,8 @@
     
     line-height: 1.5em;
     white-space: pre-line;
-    
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .profile-card-editor label {
     
@@ -250,7 +257,13 @@
     grid-template-columns: min-content auto;
     
 }
-.team-editor > * {
+.team-editor .team-details-editor {
+    
+    grid-column-start: 1;
+    grid-column-end: 3;
+    
+}
+.team-editor .profile-card {
     
     grid-column-start: 1;
     grid-column-end: 2;
@@ -260,10 +273,29 @@
     
     grid-column-start: 2;
     grid-column-end: 3;
-    grid-row-start: 2;
-    grid-row-end: 999;
     margin: 20px;
-    padding: 40px;
+
+}
+.team-editor .profile-actions {
+    
+    grid-column-start: 2;
+    grid-column-end: 3;
+    margin: 20px;
+    
+}
+.team-editor .profile-actions button {
+    
+    font-size: 1em;
+    padding: 10px 20px;
+    border-radius: 5px;
+    min-width: 200px;
+    
+}
+.team-editor .profile-actions .danger-button {
+    
+    box-shadow: 0 0 20px -10px red;
+    background-color: #FEE;
+    color: red;
     
 }
 .team-details-editor input[type=text] {

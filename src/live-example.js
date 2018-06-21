@@ -52,7 +52,8 @@ class LiveExample extends Component {
             ...sampleProfiles[ 0 ],
             styled: true,
             unstyled: false,
-            team: team()
+            team: team(),
+            archived: []
             
         };
         
@@ -87,6 +88,22 @@ class LiveExample extends Component {
             blurb={this.state.blurb} />;
                 
     }
+    handleDeleteProfile( profile ) {
+        
+        const { team } = this.state;
+        team.profiles = team.profiles.filter( x => x.id !== profile.id );
+        this.setState( { team } );
+        
+    }
+    handleArchiveProfile( profile ) {
+        
+        this.handleDeleteProfile( profile );
+        const { archived = [] } = this.state;
+        archived.push( profile );
+        this.setState( { archived } );
+        
+    }
+    
     render() {
     
         let angle = -10;
@@ -99,6 +116,12 @@ class LiveExample extends Component {
                 "transform": `rotateZ(${-angle}deg)`,
                 "top": `${offset}px`
             };
+            
+        };
+        profileStyle.reset = () => {
+            
+            angle = -10;
+            offset = 20;
             
         };
         
@@ -153,6 +176,7 @@ class LiveExample extends Component {
                     
                     </div> )}
                 </div>
+                
             </section>
             <section>
             
@@ -170,8 +194,24 @@ class LiveExample extends Component {
                     className="team styled-example"
                     size="6"
                     team={ this.state.team }
-                    onChange={ team => this.setState( { team } ) } />
+                    onChange={ team => this.setState( { team } ) }
+                    onArchiveProfile={ profile => this.handleArchiveProfile( profile ) }
+                    onDeleteProfile={ profile => this.handleDeleteProfile( profile ) } />
                     
+            </section>
+            <section>
+                
+                <h1>Archived profiles</h1>
+                <div className="team-example">
+                    {profileStyle.reset()}
+                    {this.state.archived.map( profile => <div key={ profile.id } className="styled-example">
+                    
+                        <ProfileCard {...profile} style={profileStyle()} className="styled-example" /> 
+                    
+                    </div> )}
+                
+                </div>
+                
             </section>
             
         </article>;

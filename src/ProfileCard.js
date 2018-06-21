@@ -11,6 +11,7 @@ const ProfileCard = ( { id, name, colour, color, avatar, blurb, style, className
     <div className="profile-avatar">
         {avatar in svgs ? React.createElement( svgs[ avatar ] ) : <img src={avatar} />}
     </div>
+    
     <div className="profile-blurb">{(blurb || "").replace( /\n/g, "\u000A" )}</div>
     
 </article>;
