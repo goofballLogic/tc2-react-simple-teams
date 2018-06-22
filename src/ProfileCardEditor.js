@@ -25,13 +25,19 @@ class PickerCanvas extends Component {
     
 }
 
+function ensureFunction( func, funcName ) {
+    
+    if ( !func ) throw new Error( `No ${funcName} function was supplied to ProfileCardEditor` );
+    
+}
+
 class ProfileCardEditor extends PureComponent {
     
     handleChange( e ) {
         
         const { name, value } = e.target;
         const { onChange, profile } = this.props;
-        if ( !onChange ) { throw new Error( "No onChange function was supplied to ProfileCardEditor" ); }
+        ensureFunction( onChange, "onChange" );
         onChange( { ...profile, [ name ]: value } );
 
     }
@@ -39,14 +45,14 @@ class ProfileCardEditor extends PureComponent {
         
         e.preventDefault();
         const { onChange, profile } = this.props;
-        if ( !onChange ) { throw new Error( "No onChange function was supplied to ProfileCardEditor" ); }
+        ensureFunction( onChange, "onChange" );
         onChange( { ...profile, colour: value } );
         
     }
     pickAvatar( value ) {
         
         const { onChange, profile } = this.props;
-        if ( !onChange ) { throw new Error( "No onChange function was supplied to ProfileCardEditor" ); }
+        ensureFunction( onChange, "onChange" );
         onChange( { ...profile, avatar: value } );
         
     }
