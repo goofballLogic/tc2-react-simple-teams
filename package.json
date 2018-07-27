@@ -1,6 +1,6 @@
 {
   "name": "tc2-react-simple-teams",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Simple teams for react by tc2",
   "main": "dist/bundle.js",
   "directories": {
