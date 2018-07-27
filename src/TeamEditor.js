@@ -37,7 +37,7 @@ class TeamEditor extends Component {
         const { selectedProfile, profiles = [] } = state;
         const { team, size } = props;
         let newSelectedProfile = selectedProfile && selectedProfile.isEmpty ? selectedProfile : null;
-        for( const profile of team.profiles ) {
+        for( const profile of team.profiles || [] ) {
             
             if( selectedProfile && profile.id === selectedProfile.id ) {
                 
