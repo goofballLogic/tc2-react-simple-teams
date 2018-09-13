@@ -120,15 +120,16 @@ class TeamEditor extends Component {
         const { onArchiveProfile, onDeleteProfile } = this.props;
         return <div key="profile-actions" className="profile-actions">
 
+            <button className="done" onClick={() => this.selectProfile( selectedProfile.id )}>Done</button>
             { onArchiveProfile && [
             
-                <button key="archive-button" onClick={() => onArchiveProfile( selectedProfile )}>Archive</button>,
+                <button key="archive-button" class="danger-button archive" onClick={() => onArchiveProfile( selectedProfile )}>Archive</button>,
                 <p key="archive-explanation">Archiving a profile removes the profiles from the active team but retains data associated with the profile. It may be possible to restore the profile to the active team at a later date.</p>
             
             ] }
             { onDeleteProfile && [
             
-                <button key="delete-button" className="danger-button" onClick={() => onDeleteProfile( selectedProfile )}>Delete</button>,
+                <button key="delete-button" className="danger-button delete" onClick={() => onDeleteProfile( selectedProfile )}>Delete</button>,
                 <p key="delete-explanation">Deleting a profile purges all record of the profile from the team, including historical data associated with the profile. In most cases we recommend that you Archive the profile instead.</p>
             
             ] }
@@ -167,12 +168,13 @@ class TeamEditor extends Component {
                 
             </form>
             <div className="team-profiles">
-            {profiles.map( x =>
+            {profiles.map( ( x, index ) =>
             
                 <ProfileCard key={x.id} 
                     {...x} 
                     className={ classy( x.isEmpty && "undefined", x === selectedProfile && "selected" ) } 
-                    onClick={ id => this.selectProfile( id ) } />
+                    onClick={ id => this.selectProfile( id ) }
+                    index={ index } />
             
             )}
             </div>
